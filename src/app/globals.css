@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 *::before,
-*::after {
+*::after,
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -47,6 +48,7 @@
   color: #ffd58c;
   font-size: 25px;
 }
+
 .course-h1.card-title {
 }
 .course__description {
@@ -185,4 +187,106 @@
   left: 40px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.course-card__content2 {
+  display: none;
+  min-height: 100vh;
+}
+.course-card__content2.course-active {
+  display: flex;
+}
+
+.course-page {
+  display: none;
+}
+
+.course-page.course-active {
+  display: flex;
+}
+
+.course-page__content-and-review {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+
+.course-page__content {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+.course-page__content-img {
+  flex: 1;
+  height: 321px;
+}
+.course-page__content-description {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+.course-page__content-description-h {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+.course-page__content-description-h2 {
+  font-size: 22px;
+  color: white;
+}
+.course-page__content-description-h3,
+.content-description-recommendation-h3 {
+  font-size: 17px;
+  color: #ffd58c;
+}
+
+.course-page__content-description-text {
+  color: #c1a194;
+  font-size: 14px;
+}
+.course-page__content-description-text-span {
+  color: white;
+  font-size: 14px;
+}
+
+.course-page__content-description-recommendation {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  gap: 10px;
+}
+
+.test {
+  background-color: white;
+  width: 270px;
+  height: 70px;
+}
+
+.course-page__review {
+  display: flex;
+  gap: 3px;
+}
+
+.course-page__review-links {
+  width: 520px;
+  padding: 10px 7px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.review-links-span {
+  font-size: 14px;
+  color: #ffd58c;
+}
+.review-links-p {
+  font-size: 14px;
+  color: white;
+}
+
+.course-page__btns {
+  display: flex;
+  justify-content: space-between;
+}
+.course-page__btns-btn {
+  color: #ffffff;
 }

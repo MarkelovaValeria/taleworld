@@ -7,12 +7,7 @@ import { useState } from "react";
 
 const CreateCoursePage = () => {
   const [indexbtn, setIndexbtn] = useState(1);
-  const [coursebtn, setCorse] = useState(1);
   const toggleTab = (index) => {
-    setIndexbtn(index);
-  };
-
-  const toggleTab2 = (index) => {
     setIndexbtn(index);
   };
 
