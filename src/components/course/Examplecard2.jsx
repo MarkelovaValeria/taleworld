@@ -144,9 +144,12 @@ const ExampleCard = () => {
               <button className="course-page__btns-btn">
                 ПЕРЕГЛЯНУТИ ВІДГУКИ
               </button>
-              <button className="course-page__btns-btn">
+              <Link
+                className="course-page__btns-btn"
+                href={"/createcourse/create"}
+              >
                 РОЗПОЧАТИ СТВОРЕННЯ
-              </button>
+              </Link>
             </div>
           </div>
         </div>
