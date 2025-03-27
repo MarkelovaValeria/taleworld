@@ -34,7 +34,10 @@ const CreateCoursePage = () => {
                   інших вашими ідеями або оберіть вже готовий дизайн
                 </p>
               </div>
-              <button className="course__btn">Створити курс</button>
+              <div className="course__btns">
+                <button className="course__btns-btn">Створити курс</button>
+                <button className="course__btns-btn">Створити мапу</button>
+              </div>
             </div>
             <Examplecard></Examplecard>
           </div>
