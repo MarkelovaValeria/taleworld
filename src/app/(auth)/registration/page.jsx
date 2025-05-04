@@ -2,14 +2,32 @@ import Link from "next/link";
 
 const RegistrationPage = () => {
   return (
-    <div className="registration-page">
+    <div className="registration-choise">
       <div className="main-container">
-        <div className="registration-page__inner">
+        <div className="registration-choise__inner">
           <img src="\SVG\TaleWorld-logo.svg" className="reg-log-page-logo" />
-          <div className="registration-page__choise">
-            <Link href="/registration/student">Студент</Link>
+          <div className="registration-choise__role">
+            <Link
+              href={{
+                pathname: "/registration/role",
+                query: {
+                  role: "student",
+                },
+              }}
+            >
+              Студент
+            </Link>
             <p>ХТО ТИ</p>
-            <Link href="/registration/teacher">Викладач</Link>
+            <Link
+              href={{
+                pathname: "/registration/role",
+                query: {
+                  role: "teacher",
+                },
+              }}
+            >
+              Викладач
+            </Link>
           </div>
           <p className="reg-log-page__choise">
             Вже маєте профіль? -{" "}

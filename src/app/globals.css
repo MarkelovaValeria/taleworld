@@ -9,79 +9,82 @@
   margin: 0;
   padding: 0;
 }
-
-.home {
-  display: flex;
-  height: 100vh;
-  background-image: url("/images/home_bg.png");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.home-bg-left {
-  background-color: rgba(0, 0, 0, 0.55);
-  width: 150px;
-}
-
-.home-bg-right {
-  background-color: rgba(0, 0, 0, 0.55);
-  flex: 1;
-}
-
-.home__inner2 {
-  display: flex;
-  height: 100%;
-  width: 400px;
-  padding: 0 45px;
-  background-color: rgba(0, 0, 0, 0.3);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(3px);
-}
-
-.home__info {
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  align-items: center;
-}
-
+/*Logo*/
 .home-logo {
   width: 200px;
   height: 60px;
 }
 
-.home-text {
-  font-size: 14px;
-  color: #ffd58c;
-  text-align: center;
-}
-.home__btns {
+/*Home page*/
+.home {
+  padding-top: 60px;
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 25px;
-}
-
-.home__btns-btn {
-  display: flex;
-  width: 100px;
-  padding: 5px 0px;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid white;
-  color: #f99551;
-}
-
-.login-page {
-  background-image: url("");
+  flex-direction: column;
+  height: 100vh;
+  background-image: url("/images/Home_bg.png");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding-left: 60px;
+}
+
+.home-logo1 {
+  margin-bottom: 60px;
+}
+
+.home-description {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: white;
+  margin-bottom: 100px;
+}
+.home-description h1 {
+  font-size: 64px;
+  font-weight: bold;
+  line-height: 76px;
+}
+
+.home-description p {
+  width: 600px;
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.home-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.home-btns-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 302px;
+  background-color: #21a504;
+  border-radius: 20px;
+  padding: 4px 0;
+}
+
+.home-btns-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 302px;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 4px 0;
+}
+
+/*Login*/
+
+.login-page {
+  background-color: black;
 }
 
 .login-page__inner {
@@ -102,7 +105,7 @@
   flex-direction: column;
   width: 340px;
   gap: 50px;
-  color: #f99551;
+  color: #21a504;
 }
 
 .login-page__form-inputs {
@@ -112,35 +115,34 @@
   gap: 60px;
 }
 
-.login-page__form-input {
+.reg-log-page__form-input {
   outline: none;
-  border-bottom: 1px solid #f99551;
-  color: #c1a194;
+  border-bottom: 1px solid #177303;
+  color: #d9d9d9;
+  background-color: transparent;
 }
-.login-page__form-input::placeholder {
-  color: #c1a194;
+.reg-log-page__form-input::placeholder {
+  color: #d9d9d9;
 }
 
 .reg-log-page__choise {
   margin-top: auto;
   text-align: center;
   font-size: 14px;
-  color: #c1a194;
+  color: #d9d9d9;
 }
 
 .reg-log-page-link {
-  color: black;
+  color: #21a504;
   font-weight: 500;
 }
 
-.registration-page {
-  background-image: url("");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/*Registration*/
+.registration-choise {
+  background-color: black;
+  color: #d9d9d9;
 }
-.registration-page__inner {
+.registration-choise__inner {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -149,10 +151,95 @@
   padding: 60px 0;
 }
 
-.registration-page__choise {
+.registration-choise__role {
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+}
+
+.registration-page {
+  background-color: black;
+}
+.registration-page__inner {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.registration-page_form-description {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.registration-page_description {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.registration-page_description-text {
+  color: #d9d9d9;
+  font-size: 24px;
+}
+
+.registration-page_description-text span {
+  color: #21a504;
+  font-weight: bold;
+}
+
+.registration-page_description-image-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.registration-page_description-image {
+  width: 600px;
+  height: 300px;
+  background-color: #d9d9d9;
+}
+
+.registration-page_description-btns {
+  display: flex;
+  gap: 16px;
+}
+
+.registration-page_description-btns-btn {
+  background-color: #d9d9d9;
+  width: 120px;
+  height: 10px;
+}
+
+.registration-page__form {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  color: #21a504;
+}
+.reg-inputs__full-name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.reg-log-page__form-input.name {
+  width: 120px;
+}
+.reg-log-page__form-input.surname {
+  width: 150px;
+}
+.reg-inputs__other {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+.reg-form-btn {
+  margin-top: 50px;
 }
 
 .name2 {

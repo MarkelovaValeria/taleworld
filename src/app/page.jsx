@@ -1,28 +1,31 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Home = () => {
   return (
     <div className="home">
-      <div className="home-bg-left"></div>
-      <div className="home__inner2">
-        <div className="home__info">
-          <img src="\SVG\TaleWorld-logo.svg" className="home-logo" />
-          <p className="home-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            vehicula libero sit amet mi venenatis, in egestas eros convallis.
-            Praesent{" "}
-          </p>
-        </div>
-        <div className="home__btns">
-          <Link className="home__btns-btn" href="/login">
-            Увійти
-          </Link>
-          <Link href={"#"} className="home__btns-btn">
-            Про нас
-          </Link>
-        </div>
+      <Image
+        className="home-logo1"
+        alt="logo"
+        width="440"
+        height="40"
+        src="\SVG\TaleWorld-logo.svg"
+      />
+      <div className="home-description">
+        <h1>ВЧИ ТА НАВЧАЙ</h1>
+        <p>
+          Цей простір об'єднує тих, хто прагне ділитися знаннями, і тих, хто
+          готовий їх отримати.
+        </p>
       </div>
-      <div className="home-bg-right"></div>
+      <div className="home-btns">
+        <Link href={"/login"} className="home-btns-next">
+          Вперед
+        </Link>
+        <Link href={"#"} className="home-btns-about">
+          Про нас
+        </Link>
+      </div>
     </div>
   );
 };
