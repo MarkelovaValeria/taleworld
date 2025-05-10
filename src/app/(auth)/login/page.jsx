@@ -2,8 +2,11 @@
 import Link from "next/link";
 import { loginUser } from "@/services/connect.js";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,6 +19,7 @@ const LoginPage = () => {
     console.log(res);
     setEmail("");
     setPassword("");
+    router.replace("/home");
   };
 
   return (
