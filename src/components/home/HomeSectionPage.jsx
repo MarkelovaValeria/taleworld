@@ -1,22 +1,33 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import { useEffect, useState } from "react";
+import { getAllCourses, getAllMaps } from "@/services/connect.js";
 
-const HomePage = () => {
-  const imgs = [
-    "/images/Home_bg.png",
-    "/images/Home_bg.png",
-    "/images/Home_bg.png",
-    "/images/Home_bg.png",
-    "/images/Home_bg.png",
-    "/images/Home_bg.png",
-    "/images/Home_bg.png",
-    "/images/Home_bg.png",
-    "/images/Home_bg.png",
-  ];
-  const role = "teacher";
+const HomeSectionPage = ({ role }) => {
+  const [courses, setCourses] = useState([]);
+  const [maps, setMaps] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getAllCourses();
+      setCourses(data);
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getAllMaps();
+      setMaps(data);
+    };
+    getData();
+  }, []);
+
   return (
     <div>
-      {role == "teacher" ? (
+      {role == "Teacher" ? (
         <div className="home-teacher">
           <div className="home-teacher__inner">
             <div className="home-teacher__intro">
@@ -102,14 +113,20 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="home-teacher__catalog-view">
-                {imgs.map((img) => (
-                  <Image
-                    className="home-teacher__catalog-view-item"
-                    src={img}
-                    alt="bg map"
-                    width="446"
-                    height="254"
-                  />
+                {maps.map((map) => (
+                  <Link key={map.id} href="#">
+                    <Image
+                      className="home-teacher__catalog-view-item"
+                      src={
+                        map.backgroundTitle
+                          ? map.backgroundTitle
+                          : "/images/Home_bg.png"
+                      }
+                      alt="bg map"
+                      width="446"
+                      height="254"
+                    />
+                  </Link>
                 ))}
               </div>
             </div>
@@ -118,9 +135,74 @@ const HomePage = () => {
       ) : (
         <div className="home-student">
           <div className="home-student__inner">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className="home-student__intro">
+              <div className="home-student__intro-description">
+                <h2>Знайди свій шлях &</h2>
+                <h3>досягай вершин разом із нами</h3>
+
+                <div className="home-student__intro-description-text">
+                  <p>
+                    Щоб пробудити в собі силу знань, варто лише зробити крок —
+                    розпочати пошук викладача та курсу, або відновити
+                    проходження своєї чарівної навчальної пригоди. І нехай твоя
+                    історія буде сповнена перемог!
+                  </p>
+                  <div className="home-student__intro-description-text-btns">
+                    <button className="home-student__intro-description-text-btns-search">
+                      Розпочати пошук
+                    </button>
+                    <Link
+                      className="home-student__intro-description-text-btns-view-course"
+                      href="#"
+                    >
+                      Перейти до курсів
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="home-student__intro-img"></div>
+            </div>
+            <div className="home-student__recommendation">
+              <h2>
+                <span>Найкращі</span> з найкращих
+              </h2>
+            </div>
+            <div className="home-teacher__catalog">
+              <div className="home-teacher__catalog-top">
+                <h2>Можливо вам сподобається</h2>
+                <div className="home-teacher__catalog-top-search">
+                  <button className="home-teacher__catalog-top-search-btn-filter">
+                    filter
+                  </button>
+                  <p>пошук ідей...</p>
+                  <button className="home-teacher__catalog-top-search-btn-search">
+                    <Image
+                      src="/SVG/search2.svg"
+                      alt="icon search"
+                      width="24"
+                      height="24"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div className="home-teacher__catalog-view">
+                {courses.map((course) => (
+                  <Link href={`/course/${course.id}`} key={course.id}>
+                    <Image
+                      className="home-teacher__catalog-view-item"
+                      src={
+                        course.coursePhoto
+                          ? course.coursePhoto
+                          : "/images/Home_bg.png"
+                      }
+                      alt="bg map"
+                      width="446"
+                      height="254"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -128,4 +210,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomeSectionPage;
