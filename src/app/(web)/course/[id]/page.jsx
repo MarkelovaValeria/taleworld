@@ -24,6 +24,7 @@ const CoursePage = ({ params }) => {
     const getData = async () => {
       const data = await getUserByCourseId(id);
       setUser(data);
+      console.log(data.photo);
     };
     getData();
   }, []);
@@ -91,7 +92,17 @@ const CoursePage = ({ params }) => {
           </div>
         </div>
         <div className="view-course__right">
-          <div className="view-course__right-avatar"></div>
+          <Image
+            src={`${user?.photo ? user.photo : "/images/home_bg.png"}`}
+            width="150"
+            height="150"
+            alt="account"
+            className="view-course__right-avatar"
+          />
+          {/* <div
+            className="view-course__right-avatar"
+            style={{ backgroundImage: `url(${user?.photo})` }}
+          ></div> */}
           <p>
             We provide a wealth of health information to help pet parents take
             the best care for their furry friends

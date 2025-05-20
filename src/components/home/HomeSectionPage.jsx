@@ -8,6 +8,7 @@ import { getAllCourses, getAllMaps } from "@/services/connect.js";
 const HomeSectionPage = ({ role }) => {
   const [courses, setCourses] = useState([]);
   const [maps, setMaps] = useState([]);
+  const [activeMap, setActiveMap] = useState();
 
   useEffect(() => {
     const getData = async () => {
@@ -21,6 +22,7 @@ const HomeSectionPage = ({ role }) => {
     const getData = async () => {
       const data = await getAllMaps();
       setMaps(data);
+      setActiveMap(data[0]);
     };
     getData();
   }, []);
@@ -41,7 +43,7 @@ const HomeSectionPage = ({ role }) => {
                 </div>
                 <div className="home-teacher__intro-description-btns">
                   <Link
-                    href="#"
+                    href="/createcourse"
                     className="home-teacher__intro-description-btns-create-course"
                   >
                     Створити курс
@@ -68,7 +70,17 @@ const HomeSectionPage = ({ role }) => {
             <div className="home-teacher__recommendation">
               <div className="home-teacher__recommendation-view">
                 <h2>Шаблони, що надихають</h2>
-                <div className="home-teacher__recommendation-view-img"></div>
+                <Image
+                  width="1020"
+                  height="600"
+                  src={
+                    activeMap?.backgroundTitle
+                      ? activeMap.backgroundTitle
+                      : "/images/Home_bg.png"
+                  }
+                  alt="photo"
+                  className="home-teacher__recommendation-view-img"
+                />
                 <p>
                   Карта оформлена в сучасному, мінімалістичному стилі з акцентом
                   на зручність користування. Локації позначені чіткими іконками,
@@ -81,10 +93,23 @@ const HomeSectionPage = ({ role }) => {
                   Обери той, який тобі до душі. Твори, навчай та розповідай!
                 </h3>
                 <div className="home-teacher__recommendation-choise-imgs">
-                  <div className="home-teacher__recommendation-choise-imgs-img active"></div>
-                  <div className="home-teacher__recommendation-choise-imgs-img"></div>
-                  <div className="home-teacher__recommendation-choise-imgs-img"></div>
-                  <div className="home-teacher__recommendation-choise-imgs-img"></div>
+                  {maps.slice(0, 4).map((map) => (
+                    <Image
+                      onClick={() => {
+                        setActiveMap(map);
+                      }}
+                      key={map.id}
+                      className="home-teacher__recommendation-choise-imgs-img"
+                      src={
+                        map.backgroundTitle
+                          ? map.backgroundTitle
+                          : "/images/Home_bg.png"
+                      }
+                      alt="bg map"
+                      width="1020"
+                      height="600"
+                    />
+                  ))}
                 </div>
                 <p>
                   Карта з локаціями виконана грамотно: інтерфейс зручний,

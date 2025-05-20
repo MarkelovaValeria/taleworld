@@ -436,10 +436,17 @@
 }
 
 .home-teacher__recommendation-choise-imgs-img {
+  cursor: pointer;
   background-color: #d9d9;
   width: 46px;
   height: 460px;
   border-radius: 20px;
+  transition: all 0.7s ease;
+  object-fit: cover;
+}
+
+.home-teacher__recommendation-choise-imgs-img:hover {
+  width: 346px;
 }
 
 .home-teacher__recommendation-choise p {
@@ -510,6 +517,8 @@
 }
 
 .home-teacher__catalog-view-item {
+  width: 446px;
+  height: 254px;
   border-radius: 20px;
 }
 
@@ -747,15 +756,105 @@
 }
 
 .view-course__right-avatar {
-  background-color: #b8b7b7;
+  border: 3px solid white;
+  border-radius: 100%;
+  object-fit: cover;
   width: 150px;
   height: 150px;
-  border-radius: 100%;
 }
 
 .view-course__right p {
   font-weight: 100;
   text-align: end;
+}
+
+/* Create Course */
+
+.create-course {
+  background-color: black;
+}
+
+.create-course__inner {
+  position: relative;
+  height: calc(100vh - 66px);
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  gap: 60px;
+}
+
+.create-course__title {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
+.create-course__title h2 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.create-course__title h3 {
+  font-size: 22px;
+  font-weight: 100;
+  text-align: end;
+}
+
+.create-course__form {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.create-course__form-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.create-course__form-inner h2 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #21a504;
+}
+
+.create-course__form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-course__form-inputs-input {
+  width: 240px;
+  background-color: transparent;
+  border-bottom: 2px solid white;
+}
+
+.create-course__form-submit {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  margin-left: +200px;
+}
+
+.create-course__form-submit p {
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.create-course__form-submit button {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.create-course__photo {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: 80px;
+  bottom: 0;
 }
 
 .name2 {
@@ -839,10 +938,10 @@
 .aside-btns {
   position: absolute;
 }
-.create-course {
+/* .create-course {
   display: none;
   min-height: 100vh;
-}
+} */
 .course-design {
   display: none;
   min-height: 100vh;
