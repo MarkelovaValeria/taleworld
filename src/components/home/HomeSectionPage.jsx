@@ -4,11 +4,13 @@ import Link from "next/link";
 import React from "react";
 import { useEffect, useState } from "react";
 import { getAllCourses, getAllMaps } from "@/services/connect.js";
+import ModalCreateCourse from "@/components/modals/ModalCreateCourse.jsx"
 
 const HomeSectionPage = ({ role }) => {
   const [courses, setCourses] = useState([]);
   const [maps, setMaps] = useState([]);
   const [activeMap, setActiveMap] = useState();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,6 +29,10 @@ const HomeSectionPage = ({ role }) => {
     getData();
   }, []);
 
+  const closeModal = () => {
+    setModalIsOpen(false)
+  }
+
   return (
     <div>
       {role == "Teacher" ? (
@@ -42,12 +48,14 @@ const HomeSectionPage = ({ role }) => {
                   </p>
                 </div>
                 <div className="home-teacher__intro-description-btns">
-                  <Link
-                    href="/createcourse"
+                  <button
+                  onClick={() => {
+                    setModalIsOpen(true);
+                  }}
                     className="home-teacher__intro-description-btns-create-course"
                   >
                     Створити курс
-                  </Link>
+                  </button>
                   <Link
                     href="#"
                     className="home-teacher__intro-description-btns-view-course"
@@ -57,7 +65,7 @@ const HomeSectionPage = ({ role }) => {
                 </div>
               </div>
               <div className="home-teacher__intro-example">
-                <div className="home-teacher__intro-example-img"></div>
+                <Image className="home-teacher__intro-example-img" width="504" height="246" alt="image" src={'/images/Map1.jpg'}/>
                 <div className="home-teacher__intro-example-description">
                   <h2>Шаблони</h2>
                   <p>
@@ -114,14 +122,13 @@ const HomeSectionPage = ({ role }) => {
                 <p>
                   Карта з локаціями виконана грамотно: інтерфейс зручний,
                   розміщення об'єктів логічне. Вона добре підтримує навчальний
-                  процес і дозволяє швидко орієнтуватися в завданнях. Є
-                  потенціал для розширення функціоналу.
+                  процес і дозволяє швидко орієнтуватися в завданнях.
                 </p>
               </div>
             </div>
             <div className="home-teacher__catalog">
               <div className="home-teacher__catalog-top">
-                <h2>Можливо вам сподобається</h2>
+                <h2>Карти, які вам сподобаються</h2>
                 <div className="home-teacher__catalog-top-search">
                   <button className="home-teacher__catalog-top-search-btn-filter">
                     filter
@@ -231,6 +238,9 @@ const HomeSectionPage = ({ role }) => {
           </div>
         </div>
       )}
+      {
+        modalIsOpen && <ModalCreateCourse closeModal={closeModal}/>
+      }
     </div>
   );
 };
