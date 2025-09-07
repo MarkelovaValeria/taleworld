@@ -138,3 +138,28 @@ export async function getAllMaps() {
     return null;
   }
 }
+
+
+export async function createCourse(courseData) {
+  try {
+    const createC = await fetch("http://localhost:5123/api/Course/createCourse", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(courseData),
+      credentials: "include",
+    });
+
+    if (!createC.ok) {
+      const errorText = await createC.text();
+      throw new Error(errorText || "Помилка при реєстрації");
+    }
+
+    const data = await createC.json();
+    return data.message;
+  } catch (error) {
+    console.error("Помилка при POST-запиті:", error);
+    return null;
+  }
+}

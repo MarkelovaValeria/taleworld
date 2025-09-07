@@ -4,9 +4,10 @@ import Link from "next/link";
 import React from "react";
 import { useEffect, useState } from "react";
 import { getAllCourses, getAllMaps } from "@/services/connect.js";
-import ModalCreateCourse from "@/components/modals/ModalCreateCourse.jsx"
+import ModalCreateCourse from "@/components/modals/ModalCreateCourse.jsx";
+import Searchbar from "../searchbar/Searchbar";
 
-const HomeSectionPage = ({ role }) => {
+const HomeSectionPage = ({ role, userId }) => {
   const [courses, setCourses] = useState([]);
   const [maps, setMaps] = useState([]);
   const [activeMap, setActiveMap] = useState();
@@ -30,8 +31,8 @@ const HomeSectionPage = ({ role }) => {
   }, []);
 
   const closeModal = () => {
-    setModalIsOpen(false)
-  }
+    setModalIsOpen(false);
+  };
 
   return (
     <div>
@@ -49,9 +50,9 @@ const HomeSectionPage = ({ role }) => {
                 </div>
                 <div className="home-teacher__intro-description-btns">
                   <button
-                  onClick={() => {
-                    setModalIsOpen(true);
-                  }}
+                    onClick={() => {
+                      setModalIsOpen(true);
+                    }}
                     className="home-teacher__intro-description-btns-create-course"
                   >
                     Створити курс
@@ -65,7 +66,13 @@ const HomeSectionPage = ({ role }) => {
                 </div>
               </div>
               <div className="home-teacher__intro-example">
-                <Image className="home-teacher__intro-example-img" width="504" height="246" alt="image" src={'/images/Map1.jpg'}/>
+                <Image
+                  className="home-teacher__intro-example-img"
+                  width="504"
+                  height="246"
+                  alt="image"
+                  src={"/images/Map1.jpg"}
+                />
                 <div className="home-teacher__intro-example-description">
                   <h2>Шаблони</h2>
                   <p>
@@ -129,20 +136,7 @@ const HomeSectionPage = ({ role }) => {
             <div className="home-teacher__catalog">
               <div className="home-teacher__catalog-top">
                 <h2>Карти, які вам сподобаються</h2>
-                <div className="home-teacher__catalog-top-search">
-                  <button className="home-teacher__catalog-top-search-btn-filter">
-                    filter
-                  </button>
-                  <p>пошук ідей...</p>
-                  <button className="home-teacher__catalog-top-search-btn-search">
-                    <Image
-                      src="/SVG/search2.svg"
-                      alt="icon search"
-                      width="24"
-                      height="24"
-                    />
-                  </button>
-                </div>
+                <Searchbar />
               </div>
               <div className="home-teacher__catalog-view">
                 {maps.map((map) => (
@@ -202,20 +196,7 @@ const HomeSectionPage = ({ role }) => {
             <div className="home-teacher__catalog">
               <div className="home-teacher__catalog-top">
                 <h2>Можливо вам сподобається</h2>
-                <div className="home-teacher__catalog-top-search">
-                  <button className="home-teacher__catalog-top-search-btn-filter">
-                    filter
-                  </button>
-                  <p>пошук ідей...</p>
-                  <button className="home-teacher__catalog-top-search-btn-search">
-                    <Image
-                      src="/SVG/search2.svg"
-                      alt="icon search"
-                      width="24"
-                      height="24"
-                    />
-                  </button>
-                </div>
+                <Searchbar />
               </div>
               <div className="home-teacher__catalog-view">
                 {courses.map((course) => (
@@ -238,9 +219,9 @@ const HomeSectionPage = ({ role }) => {
           </div>
         </div>
       )}
-      {
-        modalIsOpen && <ModalCreateCourse closeModal={closeModal}/>
-      }
+      {modalIsOpen && (
+        <ModalCreateCourse closeModal={closeModal} userId={userId} />
+      )}
     </div>
   );
 };

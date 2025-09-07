@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Links from "./links/Links";
 import Link from "next/link";
 
 const Header = () => {
