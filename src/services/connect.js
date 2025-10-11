@@ -139,17 +139,43 @@ export async function getAllMaps() {
   }
 }
 
-
-export async function createCourse(courseData) {
+export async function getMapById(id) {
+  console.log(id);
   try {
-    const createC = await fetch("http://localhost:5123/api/Course/createCourse", {
-      method: "POST",
+    const res = await fetch(`http://localhost:5123/api/Map/byId?id=${id}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(courseData),
-      credentials: "include",
     });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(errorText || "Помилка отримання карти");
+    }
+
+    const data = await res.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error("Помилка при GET-запиті:", error);
+    return null;
+  }
+}
+
+export async function createCourse(courseData) {
+  try {
+    const createC = await fetch(
+      "http://localhost:5123/api/Course/createCourse",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(courseData),
+        credentials: "include",
+      }
+    );
 
     if (!createC.ok) {
       const errorText = await createC.text();

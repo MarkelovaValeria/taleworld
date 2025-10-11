@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { registerUser } from "@/services/connect.js";
 
 const RegistrationRolePage = () => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const role = searchParams.get("role");
   const [name, setName] = useState("");
@@ -32,6 +33,7 @@ const RegistrationRolePage = () => {
       setPassword("");
       setLanguage("");
       setPassConfirm("");
+      router.replace("/login");
     } else {
       alert("пароль не співпадає!");
     }

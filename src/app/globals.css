@@ -139,6 +139,14 @@
   background-color: #21a504;
   border-radius: 20px;
   padding: 4px 0;
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TODO need to change */
+.home-btns-next:hover {
+  background-color: white;
+  color: #191919;
 }
 
 .home-btns-about {
@@ -149,6 +157,13 @@
   border: 2px solid white;
   border-radius: 20px;
   padding: 4px 0;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TODO need to change */
+.home-btns-about:hover {
+  background-color: white;
+  color: #191919;
 }
 
 /*Login*/
@@ -191,6 +206,11 @@
   color: #d9d9d9;
   background-color: transparent;
 }
+
+.reg-log-page__form-input > option {
+  background-color: #191919;
+}
+
 .reg-log-page__form-input::placeholder {
   color: #d9d9d9;
 }
@@ -369,6 +389,13 @@
   background-color: #21a504;
   border: none;
   border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TODO need to change */
+.home-teacher__intro-description-btns-create-course:hover {
+  background-color: white;
+  color: #191919;
 }
 
 .home-teacher__intro-description-btns-view-course {
@@ -379,6 +406,13 @@
   padding: 4px 0;
   border: 2px solid white;
   border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TODO need to change */
+.home-teacher__intro-description-btns-view-course:hover {
+  background-color: white;
+  color: #191919;
 }
 
 .home-teacher__intro-example {
@@ -837,6 +871,12 @@
   padding: 10px 20px;
   width: 440px;
   font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TODO need to change */
+.modal-create-course__inner-form-submit:hover {
+  background-color: white;
 }
 
 .modal-create-course__inner-img {
@@ -919,6 +959,12 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TODO need to change */
+.modal-create-lesson__inner-btns-create-lesson:hover {
+  background-color: white;
 }
 
 .modal-create-lesson__inner-btns p {
@@ -934,6 +980,13 @@
   padding: 10px 20px;
   width: 440px;
   font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TODO need to change */
+.modal-create-lesson__inner-btns-exit:hover {
+  background-color: rgb(207, 89, 89);
+  color: white;
 }
 
 /*Create Lesson*/

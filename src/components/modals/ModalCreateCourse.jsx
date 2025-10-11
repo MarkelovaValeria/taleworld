@@ -8,24 +8,30 @@ function ModalCreateCourse({ closeModal, userId }) {
   const [index, setIndex] = useState(0);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [isEmptyInput, setIsEmptyInput] = useState(false);
 
   const createC = async (e) => {
     e.preventDefault();
-    console.log(userId);
     if (!userId) {
       alert("Користувач не завантажений");
       return;
     }
 
-    await createCourse({
-      title,
-      description,
-      teacherId: userId,
-    });
+    if (title != "" && description != "") {
+      setIsEmptyInput(false);
+      await createCourse({
+        title,
+        description,
+        teacherId: userId,
+      });
+      setIndex(1); // показати інший екран
+    } else {
+      setIsEmptyInput(true);
+      alert("Заповніть форму");
+    }
 
     setTitle("");
     setDescription("");
-    setIndex(1); // показати інший екран
   };
   return (
     <div>

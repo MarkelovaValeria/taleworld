@@ -24,7 +24,11 @@ const CreateLesson = () => {
         <Searchbar />
         <div className="home-teacher__catalog-view">
           {maps.map((map) => (
-            <Link className="create-lesson__catalog-item" key={map.id} href="#">
+            <Link
+              className="create-lesson__catalog-item"
+              key={map.id}
+              href={`/createlesson/map/${map.id}`}
+            >
               <Image
                 className="create-lesson__catalog-view-item"
                 src={

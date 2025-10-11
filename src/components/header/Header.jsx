@@ -15,11 +15,11 @@ const Header = () => {
           <Link className="header-nav-links-link" href="/home">
             головна
           </Link>
-          <Link className="header-nav-links-link" href="#">
+          <Link className="header-nav-links-link" href="/mycourses">
             власні курси
           </Link>
         </div>
-        <Link className="header-nav-account" href="#">
+        <Link className="header-nav-account" href="/account">
           <Image
             className="header-links-account-img"
             src="/images/accountImg.jpeg"
