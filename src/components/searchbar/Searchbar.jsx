@@ -4,7 +4,7 @@ const Searchbar = () => {
   return (
     <div className="search">
       <button className="search-btn-filter">filter</button>
-      <p>пошук ідей...</p>
+      <input placeholder="пошук ідей..." />
       <button className="search-btn-search">
         <Image
           src="/SVG/search2.svg"

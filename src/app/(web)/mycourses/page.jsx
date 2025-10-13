@@ -1,7 +1,13 @@
-import React from "react";
+import MyCoursesComponent from "@/components/mycourses/MyCoursesComponent.jsx";
+import { getUserFromToken } from "@/lib/auth";
 
-const MyCoursesPage = () => {
-  return <div>MyCoursesPage</div>;
+const MyCoursesPage = async () => {
+  const user = await getUserFromToken();
+  return (
+    <>
+      <MyCoursesComponent userId={user.userId} />
+    </>
+  );
 };
 
 export default MyCoursesPage;

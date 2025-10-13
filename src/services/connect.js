@@ -68,6 +68,31 @@ export async function getAllCourses() {
   }
 }
 
+export async function getAllCoursesByUserId(teacherId) {
+  try {
+    const res = await fetch(
+      `http://localhost:5123/api/Course/byUserAllCourses?teacherId=${teacherId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(errorText || "Помилка отримання курсів викладача");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Помилка при отриманні курсів викладача:", error);
+    return null;
+  }
+}
+
 export async function getCourseById(id) {
   console.log(id);
   try {
