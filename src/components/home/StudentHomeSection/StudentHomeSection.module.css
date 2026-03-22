@@ -1,0 +1,169 @@
+.home_student {
+  background-color: black;
+}
+
+/* intro */
+.home_student_intro {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+  background-color: #ffffff;
+  color: black;
+}
+
+.home_student_intro_top_text {
+  padding: 20px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home_student_intro_top_text > h1 {
+  font-size: 96px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.home_student_intro_top_text > h1 > span {
+  font-size: 48px;
+  font-weight: 400;
+  text-align: right;
+}
+
+.home_student_intro_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home_student_intro_bottom_text {
+  font-size: 24px;
+  width: 580px;
+}
+
+.home_student_intro_bottom_btns {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.home_student_intro_bottom_btn_search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 302px;
+  padding: 4px 0;
+  background-color: #21a504;
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.home_student_intro_bottom_btn_view_course {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 302px;
+  padding: 4px 0;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+/* recommendation */
+.home_student_rec {
+  padding: 20px 40px 40px;
+}
+
+.home_student_rec > h2 {
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+.home_student_rec > h2 > span {
+  color: #21a504;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.home_student_rec_content {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.home_student_rec_content_left {
+  width: 100%;
+  max-width: 866px;
+  display: flex;
+  flex-direction: column;
+}
+
+.home_student_rec_content_left > p {
+  font-size: 24px;
+  color: white;
+  margin-top: auto;
+}
+
+.home_student_rec_content_left_img {
+  background-color: #7c7c7c;
+  border-radius: 20px;
+  height: 536px;
+  width: 100%;
+}
+
+.home_student_rec_content_right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row: repeat(3, 1fr);
+  gap: 56px;
+}
+
+.home_student_rec_content_right_item {
+  background-color: #7c7c7c;
+  border-radius: 20px;
+  min-height: 240px;
+  width: 404px;
+}
+
+.home_student_rec_content_right_item:first-child {
+  grid-row: span 2;
+}
+
+/* catalog */
+.home_student_catalog {
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.home_student_catalog_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home_student_catalog_top > h2 {
+  color: #21a504;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.home_student_catalog_top_list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.home_student_catalog_top_list_item {
+  width: 446px;
+  height: 254px;
+  border-radius: 20px;
+}

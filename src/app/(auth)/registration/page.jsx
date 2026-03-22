@@ -5,7 +5,7 @@ const RegistrationPage = () => {
     <div className="registration-choise">
       <div className="main-container">
         <div className="registration-choise__inner">
-          <img src="\SVG\TaleWorld-logo.svg" className="reg-log-page-logo" />
+          <img src="\svg\TaleWorld-logo.svg" className="reg-log-page-logo" />
           <div className="registration-choise__role">
             <Link
               href={{

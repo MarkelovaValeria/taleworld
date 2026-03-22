@@ -1,0 +1,72 @@
+.auth_start {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth_start_logo {
+  margin-left: -86px;
+}
+
+.auth_start_content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 100px;
+
+  position: relative;
+}
+
+.auth_start_text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: white;
+}
+
+.auth_start_text_title {
+  font-size: 96px;
+  line-height: 110px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.auth_start_text_subtitle {
+  font-size: 32px;
+  line-height: 50px;
+  width: 100%;
+  max-width: 832px;
+}
+
+.auth_start_btn_wrapper {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+
+.auth_start_btn {
+  width: fit-content;
+  padding: 18px 144px;
+  color: #a6ff00;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bold;
+
+  border: 2px solid #a6ff00;
+  border-radius: 50px;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.auth_start_btn:hover {
+  background-color: #a6ff00;
+  color: black;
+}
+
+.auth_start_img_robot {
+  position: absolute;
+  bottom: 0;
+  right: -32px;
+}

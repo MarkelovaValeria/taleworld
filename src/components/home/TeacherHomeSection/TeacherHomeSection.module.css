@@ -1,0 +1,225 @@
+.home_teacher {
+  background-color: black;
+}
+
+/* intro */
+.home_teacher_intro {
+  height: calc(100vh - 70px);
+  display: flex;
+}
+
+.home_teacher_intro_start {
+  padding: 200px 40px 0;
+  width: 60%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.home_teacher_intro_start_text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home_teacher_intro_start_text > h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.home_teacher_intro_start_text > p {
+  font-size: 20px;
+  font-weight: 100;
+  max-width: 750px;
+  width: 100%;
+}
+
+.home_teacher_intro_start_btns {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.home_teacher_intro_start_btn_create {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 302px;
+  padding: 4px 0;
+  background-color: #21a504;
+  border: none;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TODO need to change */
+.home_teacher_intro_start_btn_create:hover {
+  background-color: white;
+  color: #191919;
+}
+
+.home_teacher_intro_start_btn_courses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 302px;
+  padding: 4px 0;
+  border: 2px solid white;
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.home_teacher_intro_template {
+  background-color: #191919;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+.home_teacher_intro_template_img {
+  border-radius: 10px;
+  width: 504px;
+  height: 246px;
+}
+
+.home_teacher_intro_template_descrition {
+  display: flex;
+  flex-direction: column;
+  width: 504px;
+  gap: 4px;
+}
+
+.home_teacher_intro_template_descrition > h2 {
+  color: #21a504;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.home_teacher_intro_template_descrition > p {
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+/* TODO need to change */
+.home_teacher_intro_start_btn_courses:hover {
+  background-color: white;
+  color: #191919;
+}
+
+/* recommendation */
+.home_teacher_rec {
+  display: flex;
+}
+
+.home_teacher_rec_view {
+  padding: 20px 40px;
+  width: 55%;
+  color: black;
+  background-color: white;
+}
+
+.home_teacher_rec_view > h2 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  height: 77px;
+}
+
+.home_teacher_rec_view > p {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.home_teacher_rec_view_img {
+  background-color: #d9d9;
+  width: 100%;
+  height: 460px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.home_teacher_rec_templates {
+  padding: 20px 40px;
+  flex: 1;
+  background-color: #d9d9d9;
+}
+
+.home_teacher_rec_templates > h3 {
+  height: 77px;
+  font-size: 24px;
+
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.home_teacher_rec_templates > p {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.home_teacher_rec_templates_list {
+  width: 100%;
+  height: 460px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.home_teacher_rec_templates_list_item {
+  cursor: pointer;
+  background-color: #d9d9;
+  width: 46px;
+  height: 460px;
+  border-radius: 20px;
+  transition: all 0.7s ease;
+  object-fit: cover;
+}
+
+.home_teacher_rec_templates_list_item.active {
+  width: 346px;
+}
+
+.home_teacher_rec_templates_list_item:hover {
+  width: 346px;
+}
+
+/* catalog */
+.home_teacher_catalog {
+  min-height: 100vh;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.home_teacher_catalog_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home_teacher_catalog_top > h2 {
+  color: #21a504;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.home_teacher_catalog_list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.home_teacher_catalog_list_item {
+  width: 446px;
+  height: 254px;
+  border-radius: 20px;
+}

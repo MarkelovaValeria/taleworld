@@ -1,7 +1,5 @@
-const AccountPage = () =>{
-    return (
-        <div>AccountPage</div>
-    )
-}
+const AccountPage = () => {
+  return <div>AccountPage</div>;
+};
 
-export default AccountPage
+export default AccountPage;

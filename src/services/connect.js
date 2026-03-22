@@ -71,13 +71,13 @@ export async function getAllCourses() {
 export async function getAllCoursesByUserId(teacherId) {
   try {
     const res = await fetch(
-      `http://localhost:5123/api/Course/byUserAllCourses?teacherId=${teacherId}`,
+      `http://localhost:5123/api/Course/byUserGetAllCourses?teacherId=${teacherId}`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     if (!res.ok) {
@@ -126,7 +126,7 @@ export async function getUserByCourseId(courseId) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     if (!res.ok) {
@@ -199,7 +199,7 @@ export async function createCourse(courseData) {
         },
         body: JSON.stringify(courseData),
         credentials: "include",
-      }
+      },
     );
 
     if (!createC.ok) {

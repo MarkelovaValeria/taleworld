@@ -1,0 +1,19 @@
+.bottom_page_buttons_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.bottom_page_buttons_container.white {
+  color: white;
+}
+
+.bottom_page_buttons_btn {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.bottom_page_buttons_btn:hover {
+  text-decoration: underline;
+}

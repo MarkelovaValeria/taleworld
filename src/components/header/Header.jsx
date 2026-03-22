@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="header">
       <Image
-        src="\SVG\TaleWorld-logo-header.svg"
+        src="\svg\TaleWorld-logo-header.svg"
         alt="logo"
         width="160"
         height="40"

@@ -1,0 +1,121 @@
+.enrollment {
+  background: #000;
+}
+
+.enrollment_inner {
+  height: calc(100vh - 70px);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 50px 0 35px;
+}
+
+.enrollment_reviews {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.enrollment_reviews_item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 12px;
+  border: 2px solid #a6ff00;
+  border-radius: 10px;
+  max-width: 450px;
+}
+
+.enrollment_reviews_item > h4 {
+  font-size: 18px;
+  color: #ffd58c;
+}
+
+.enrollment_reviews_item > p {
+  font-size: 18px;
+  color: white;
+}
+
+.enrollment_content {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 40px;
+  gap: 60px;
+}
+
+.enrollment_content_img {
+  width: 60%;
+  height: 490px;
+  border-radius: 30px;
+}
+
+.enrollment_content_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.enrollment_content_text_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.enrollment_content_text_top > h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #a6ff00;
+}
+
+.enrollment_content_text_top > span {
+  font-size: 20px;
+  color: white;
+}
+
+.enrollment_content_text_descr {
+  font-size: 18px;
+  color: white;
+}
+
+.enrollment_content_bottom {
+  margin-top: auto;
+}
+
+.enrollment_content_bottom_progress {
+  margin-bottom: 16px;
+}
+
+.enrollment_content_bottom_progress > span {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.enrollment_content_bottom_progressbar_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.enrollment_content_bottom_progressbar {
+  position: relative;
+  width: 280px;
+  border-radius: 5px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.enrollment_content_bottom_progressbar::after {
+  content: "";
+  position: absolute;
+  border-radius: 5px;
+  height: 8px;
+  width: 63%;
+  background-color: #a6ff00;
+}
+
+.enrollment_content_bottom_progressbar_wrapper > span {
+  font-size: 16px;
+  color: white;
+}

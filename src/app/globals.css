@@ -10,6 +10,11 @@
   padding: 0;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+}
+
 /* ==================== common ==================== */
 
 /* Searchbar */
@@ -65,6 +70,10 @@
   margin-top: auto;
 }
 
+.bottom-page-buttons-container.white {
+  color: white;
+}
+
 .bottom-page-buttons-btn {
   font-size: 20px;
   text-transform: uppercase;
@@ -88,6 +97,7 @@
   align-items: end;
   border-bottom: 1px solid black;
   height: 70px;
+  z-index: 100;
 }
 
 .header-nav {
@@ -99,7 +109,7 @@
 .header-nav-links {
   display: flex;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 400;
   gap: 16px;
   align-items: center;
 }
@@ -611,6 +621,7 @@
 .home-student__intro {
   display: flex;
   flex-direction: column;
+  height: calc(100vh - 70px);
   background-color: #ffffff;
   color: black;
 }
@@ -674,24 +685,74 @@
 }
 
 .home-student__intro-img {
-  background-color: #d9d9d9;
+  background: url("/images/student-page/intro-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
-  height: 324px;
+  flex: 1;
 }
 
 .home-student__recommendation {
   padding: 20px 40px 40px;
 }
 
-.home-student__recommendation span {
+.home-student__recommendation > h2 {
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+.home-student__recommendation > h2 > span {
   color: #21a504;
   font-size: 48px;
   font-weight: bold;
 }
-.home-student__recommendation h2 {
+
+.home-student__recomendation-content {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.home-student__recomendation-content-left {
+  width: 100%;
+  max-width: 866px;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-student__recomendation-content-left > p {
+  font-size: 24px;
   color: white;
-  font-size: 48px;
-  font-weight: bold;
+  margin-top: auto;
+}
+
+.home-student__recomendation-content-left-img {
+  background-color: #7c7c7c;
+  border-radius: 20px;
+  height: 536px;
+  width: 100%;
+}
+
+.home-student__recomendation-content-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row: repeat(3, 1fr);
+  gap: 56px;
+}
+
+.home-student__recomendation-content-right-item {
+  background-color: #7c7c7c;
+  border-radius: 20px;
+  min-height: 240px;
+  width: 404px;
+}
+
+.home-student__recomendation-content-right-item:first-child {
+  grid-row: span 2;
 }
 
 .home-student__recommendation-view {

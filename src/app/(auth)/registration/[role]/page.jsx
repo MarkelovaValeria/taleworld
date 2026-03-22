@@ -44,7 +44,7 @@ const RegistrationRolePage = () => {
       <div className="main-container">
         <div className="registration-page__inner">
           <div className="registration-page_form-description">
-            <img src="\SVG\TaleWorld-logo.svg" className="reg-log-page-logo" />
+            <img src="\svg\TaleWorld-logo.svg" className="reg-log-page-logo" />
             <form
               className="registration-page__form"
               onSubmit={(e) => onSubmit(e)}

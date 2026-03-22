@@ -26,7 +26,7 @@ const LoginPage = () => {
     <div className="login-page">
       <div className="main-container">
         <div className="login-page__inner">
-          <img src="\SVG\TaleWorld-logo.svg" className="reg-log-page-logo" />
+          <img src="\svg\TaleWorld-logo.svg" className="reg-log-page-logo" />
           <form className="login-page__form" onSubmit={(e) => onSubmit(e)}>
             <div className="login-page__form-inputs">
               <input

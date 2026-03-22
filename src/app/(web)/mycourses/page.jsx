@@ -3,6 +3,7 @@ import { getUserFromToken } from "@/lib/auth";
 
 const MyCoursesPage = async () => {
   const user = await getUserFromToken();
+
   return (
     <>
       <MyCoursesComponent userId={user.userId} />

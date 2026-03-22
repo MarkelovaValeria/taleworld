@@ -1,11 +1,13 @@
 import Image from "next/image";
 
+import style from "./Searchbar.module.css";
+
 const Searchbar = () => {
   return (
-    <div className="search">
-      <button className="search-btn-filter">filter</button>
+    <div className={style.search}>
+      <button className={style.search_btn_filter}>filter</button>
       <input placeholder="пошук ідей..." />
-      <button className="search-btn-search">
+      <button className={style.search_btn_search}>
         <Image
           src="/SVG/search2.svg"
           alt="icon search"
