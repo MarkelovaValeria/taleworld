@@ -2,10 +2,14 @@ import Image from "next/image";
 
 import style from "./Searchbar.module.css";
 
-const Searchbar = () => {
+const Searchbar = ({ withoutFilters }) => {
   return (
     <div className={style.search}>
-      <button className={style.search_btn_filter}>filter</button>
+      <button
+        className={`${style.search_btn_filter} ${withoutFilters ? style.hidden : ""}`}
+      >
+        filter
+      </button>
       <input placeholder="пошук ідей..." />
       <button className={style.search_btn_search}>
         <Image

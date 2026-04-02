@@ -1,0 +1,133 @@
+.modal_add_task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal_add_task_inner {
+  position: relative;
+  background-color: #4f4f4f;
+  width: 976px;
+  padding: 14px 46px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+.modal_add_task_inner_close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal_add_task_inner_close:hover {
+  transform: rotate(90deg);
+}
+
+.modal_add_task_inner_title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.modal_add_task_inner_filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.modal_add_task_inner_filters_list {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.modal_add_task_inner_filters_list_item {
+  font-size: 20px;
+}
+
+.modal_add_task_inner_filters_list_item > button:hover {
+  text-decoration: underline;
+}
+
+.modal_add_task_inner_tasks_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 305px;
+  width: 100%;
+  overflow-y: scroll;
+  gap: 30px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+.modal_add_task_inner_tasks_list_item {
+  background-color: #d9d9d9;
+  color: black;
+  width: 100%;
+  padding: 16px;
+  border-radius: 20px;
+}
+
+.modal_add_task_inner_tasks_list_item.active {
+  border: 3px solid #21a504;
+}
+
+.modal_add_task_inner_tasks_list_item > h4 {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal_add_task_inner_tasks_list_item_options {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: start;
+  list-style: circle;
+  padding-left: 20px;
+}
+
+.modal_add_task_inner_tasks_list_item_opt {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.modal_add_task_inner_tasks_list_item_opt.correct {
+  color: #21a504;
+  font-weight: 400;
+}
+
+.modal_add_task_inner_btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal_add_task_inner_btns_link {
+  font-size: 20px;
+}
+
+.modal_add_task_inner_btns_link:hover {
+  text-decoration: underline;
+}
+
+.modal_add_task_inner_btns_submit {
+  font-size: 20px;
+}
+
+.modal_add_task_inner_btns_submit:hover {
+  text-decoration: underline;
+}

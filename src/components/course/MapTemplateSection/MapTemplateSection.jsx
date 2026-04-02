@@ -1,15 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import Image from "next/image";
 
 import ModalSuccessCreationCourse from "@/components/modals/ModalSuccessCreationCourse/ModalSuccessCreationCourse";
 import PageBottomNavButtons from "@/components/common/PageBottomNavButtons/PageBottomNavButtons.jsx";
 
-import { getMapById } from "@/services/connect";
+import { getMapById, createCourse } from "@/services/connect";
 
 const MapTemplateSection = ({ id }) => {
+  const searchParams = useSearchParams();
+
+  const title = searchParams.get("title");
+  const description = searchParams.get("description");
+  const userId = searchParams.get("userId");
+
   const [map, setMap] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -50,8 +57,24 @@ const MapTemplateSection = ({ id }) => {
     },
   ]);
 
-  const handleOpenModal = () => {
-    setIsOpenModal(true);
+  const handleOpenModalAndCreateCourse = async () => {
+    if (!userId) {
+      alert("Користувач не завантажений");
+      return;
+    }
+
+    const res = await createCourse({
+      title,
+      description,
+      teacherId: userId,
+      photo: map.backgroundTitle ? map.backgroundTitle : "/images/Home_bg.png",
+    });
+
+    if (res === "Курс створено!") {
+      setIsOpenModal(true);
+    } else {
+      alert("Щось пішло не так");
+    }
   };
 
   const handleCloseModal = () => {
@@ -117,7 +140,10 @@ const MapTemplateSection = ({ id }) => {
         <PageBottomNavButtons
           buttons={[
             { text: "ПЕРЕГЛЯНУТИ ІНШІ ВАРІАНТИ", link: "/choose-template" },
-            { text: "СТВОРИТИ КУРС", onHandleClick: handleOpenModal },
+            {
+              text: "СТВОРИТИ КУРС",
+              onHandleClick: handleOpenModalAndCreateCourse,
+            },
           ]}
         />
       </div>

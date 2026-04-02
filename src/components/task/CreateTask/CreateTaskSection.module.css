@@ -1,0 +1,205 @@
+.create_task {
+  min-height: calc(100vh - 70px);
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create_task_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create_task_title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #a6ff00;
+  margin-bottom: 14px;
+}
+
+.create_task_types {
+  display: flex;
+  gap: 100px;
+  margin-bottom: 40px;
+}
+
+.create_task_types_item {
+  font-size: 24px;
+}
+
+.create_task_types_item.active {
+  font-weight: 800;
+}
+
+.create_task_helptext {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.create_task_container {
+  width: 100%;
+  max-width: 1112px;
+  border: 2px solid white;
+  height: fit-content;
+  padding-bottom: 20px;
+  border-radius: 10px 10px 40px 40px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create_task_question {
+  width: 100%;
+  position: relative;
+  border-radius: 0 0 40px 40px;
+  border: 2px solid white;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.create_task_question_input {
+  width: 100%;
+  background: white;
+  /* border-radius: 0 0 40px 40px; */
+  color: black;
+  padding: 10px 200px 10px 40px;
+  font-size: 22px;
+  outline: none;
+}
+
+.create_task_question_btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  border-radius: 40px 10px 40px 40px;
+  padding: 10px 46px;
+  background-color: black;
+  height: 100%;
+  font-size: 22px;
+}
+
+.create_task_option_text {
+  margin-bottom: 18px;
+  width: 80%;
+  position: relative;
+}
+
+.create_task_option_text_input {
+  width: 100%;
+  border-radius: 40px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 12px 72px 12px 22px;
+  font-size: 22px;
+}
+
+.create_task_option_text_input::placeholder {
+  color: #707070;
+}
+
+.create_task_option_text_add {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 100%;
+  transition: all 0.2s;
+}
+
+.create_task_option_text_add:hover {
+  transform: rotate(90deg);
+}
+
+.create_task_list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.create_task_list > p {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.create_task_list_options {
+  width: 95%;
+  border: 2px solid white;
+  background-color: #0c0c0c;
+  border-radius: 40px;
+  padding: 26px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create_task_list_options_item {
+  color: white;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.create_task_list_options_item_active {
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  border-radius: 100%;
+}
+
+.create_task_list_options_item_active.correct {
+  background-color: #a6ff00;
+  border: 1px solid #a6ff00;
+}
+
+.create_task_list_options_item_text {
+  font-size: 22px;
+  flex: 1;
+}
+
+.create_task_list_options_item_delete {
+  height: 45px;
+  width: 45px;
+  margin-left: auto;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.create_task_list_options_item_delete:hover {
+  transform: rotate(180deg);
+}
+
+.create_task_finish_btn {
+  margin-top: 12px;
+  background-color: #a6ff00;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 40px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.create_task_finish_btn:hover {
+  border: 2px solid #a6ff00;
+  background-color: transparent;
+  color: #a6ff00;
+}

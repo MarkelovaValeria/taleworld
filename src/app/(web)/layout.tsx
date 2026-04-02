@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/header/Header";
+import { getUserFromToken } from "@/lib/auth";
+import { TasksProvider } from "@/hooks/useTasksContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,18 +24,22 @@ export const metadata: Metadata = {
   title: "TaleWorld",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const user = await getUserFromToken();
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
+        <TasksProvider userId={user?.userId}>
+          <Header />
+          {children}
+        </TasksProvider>
       </body>
     </html>
   );

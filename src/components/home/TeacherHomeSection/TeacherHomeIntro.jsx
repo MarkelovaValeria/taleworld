@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import style from "./TeacherHomeSection.module.css";
+import BaseContainer from "@/components/common/BaseContainer/BaseContainer";
 
 const TeacherHomeIntro = ({ setModalIsOpen }) => {
   return (

@@ -14,23 +14,50 @@ function ModalCreateCourse({ closeModal, userId }) {
   const [description, setDescription] = useState("");
   const [isEmptyInput, setIsEmptyInput] = useState(false);
 
+  // const createC = async (e) => {
+  //   e.preventDefault();
+  //   if (!userId) {
+  //     alert("Користувач не завантажений");
+  //     return;
+  //   }
+
+  //   if (title != "" && description != "") {
+  //     setIsEmptyInput(false);
+
+  //     await createCourse({
+  //       title,
+  //       description,
+  //       teacherId: userId,
+  //     });
+
+  //     router.push("/choose-template");
+  //   } else {
+  //     setIsEmptyInput(true);
+  //     alert("Заповніть форму");
+  //   }
+
+  //   setTitle("");
+  //   setDescription("");
+  // };
+
   const createC = async (e) => {
     e.preventDefault();
+
     if (!userId) {
       alert("Користувач не завантажений");
       return;
     }
 
-    if (title != "" && description != "") {
+    if (title !== "" && description !== "") {
       setIsEmptyInput(false);
 
-      await createCourse({
+      const query = new URLSearchParams({
         title,
         description,
-        teacherId: userId,
-      });
+        userId,
+      }).toString();
 
-      router.push("/choose-template");
+      router.push(`/choose-template?${query}`);
     } else {
       setIsEmptyInput(true);
       alert("Заповніть форму");

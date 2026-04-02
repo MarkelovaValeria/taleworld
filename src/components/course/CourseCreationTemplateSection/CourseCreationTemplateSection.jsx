@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +13,12 @@ import style from "./CourseCreationTemplateSection.module.css";
 
 const CourseCreationTemplateSection = () => {
   const [maps, setMaps] = useState([]);
+
+  const searchParams = useSearchParams();
+
+  const title = searchParams.get("title");
+  const description = searchParams.get("description");
+  const userId = searchParams.get("userId");
 
   useEffect(() => {
     const getData = async () => {
@@ -32,7 +39,7 @@ const CourseCreationTemplateSection = () => {
               <Link
                 className={style.choose_template_inner_list_item}
                 key={map.id}
-                href={`/choose-template/map/${map.id}`}
+                href={`/choose-template/map/${map.id}?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&userId=${encodeURIComponent(userId)}`}
               >
                 <Image
                   className={style.choose_template_inner_list_item_img}

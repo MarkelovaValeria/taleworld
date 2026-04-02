@@ -1,0 +1,69 @@
+.loc_tasks {
+  background-color: #000;
+  min-height: calc(100vh - 70px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.loc_tasks_inner {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.loc_tasks_text > h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.loc_tasks_text > p {
+  font-size: 20px;
+}
+
+.loc_tasks_photolocation {
+  width: 100%;
+  height: 550px;
+  border-radius: 40px;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.loc_tasks_photolocation > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.loc_tasks_photolocation_spot {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 100%;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+}
+
+.loc_tasks_photolocation_spot:hover {
+  border: 2px solid yellow;
+}
+
+.loc_tasks_photolocation_spot.done {
+  border: 2px solid #a6ff00;
+}
+
+.loc_tasks_inner_create_btn {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: block;
+  text-align: right;
+}
+
+.loc_tasks_inner_create_btn:hover {
+  text-decoration: underline;
+}

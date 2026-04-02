@@ -24,7 +24,7 @@ const TeacherHomeCatalog = () => {
   return (
     <div className={style.home_teacher_catalog}>
       <div className={style.home_teacher_catalog_top}>
-        <h2>Карти, які вам сподобаються</h2>
+        <h2>Можливо вам сподобається</h2>
         <Searchbar />
       </div>
       <div className={style.home_teacher_catalog_list}>

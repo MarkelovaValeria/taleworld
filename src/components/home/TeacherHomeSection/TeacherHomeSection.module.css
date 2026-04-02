@@ -24,14 +24,13 @@
 }
 
 .home_teacher_intro_start_text > h1 {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: bold;
 }
 
 .home_teacher_intro_start_text > p {
-  font-size: 20px;
-  font-weight: 100;
-  max-width: 750px;
+  font-size: 32px;
+  max-width: 882px;
   width: 100%;
 }
 
@@ -47,11 +46,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 302px;
-  padding: 4px 0;
+  width: 400px;
+  font-size: 24px;
+  padding: 15px 0;
   background-color: #21a504;
   border: none;
-  border-radius: 20px;
+  border-radius: 50px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -65,10 +65,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 302px;
-  padding: 4px 0;
+  width: 400px;
+  font-size: 24px;
+  padding: 15px 0;
   border: 2px solid white;
-  border-radius: 20px;
+  border-radius: 50px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -80,31 +81,31 @@
   align-items: center;
   justify-content: center;
   gap: 48px;
+  padding: 0 40px;
 }
 
 .home_teacher_intro_template_img {
   border-radius: 10px;
-  width: 504px;
-  height: 246px;
+  width: 100%;
+  height: 343px;
 }
 
 .home_teacher_intro_template_descrition {
   display: flex;
   flex-direction: column;
-  width: 504px;
+  width: 100%;
   gap: 4px;
 }
 
 .home_teacher_intro_template_descrition > h2 {
   color: #21a504;
-  font-size: 48px;
+  font-size: 52px;
   font-weight: bold;
 }
 
 .home_teacher_intro_template_descrition > p {
   color: white;
-  font-size: 20px;
-  font-weight: 100;
+  font-size: 32px;
 }
 
 /* TODO need to change */
@@ -116,25 +117,26 @@
 /* recommendation */
 .home_teacher_rec {
   display: flex;
+  align-items: stretch;
 }
 
 .home_teacher_rec_view {
   padding: 20px 40px;
-  width: 55%;
+  width: 60%;
   color: black;
   background-color: white;
 }
 
 .home_teacher_rec_view > h2 {
-  font-size: 48px;
+  font-size: 52px;
   font-weight: bold;
-  margin-bottom: 30px;
-  height: 77px;
+  margin-bottom: 40px;
+  height: 88px;
 }
 
 .home_teacher_rec_view > p {
-  font-size: 20px;
-  font-weight: 100;
+  font-size: 24px;
+  font-weight: 400;
 }
 
 .home_teacher_rec_view_img {
@@ -142,31 +144,29 @@
   width: 100%;
   height: 460px;
   border-radius: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
 }
 
 .home_teacher_rec_templates {
   padding: 20px 40px;
   flex: 1;
   background-color: #d9d9d9;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .home_teacher_rec_templates > h3 {
-  height: 77px;
-  font-size: 24px;
+  height: 88px;
+  font-size: 32px;
 
   font-weight: bold;
-  margin-bottom: 30px;
-}
-
-.home_teacher_rec_templates > p {
-  font-size: 20px;
-  font-weight: 100;
+  margin-bottom: 40px;
 }
 
 .home_teacher_rec_templates_list {
   width: 100%;
-  height: 460px;
+  flex: 1;
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
@@ -176,7 +176,6 @@
   cursor: pointer;
   background-color: #d9d9;
   width: 46px;
-  height: 460px;
   border-radius: 20px;
   transition: all 0.7s ease;
   object-fit: cover;
@@ -206,8 +205,8 @@
 }
 
 .home_teacher_catalog_top > h2 {
-  color: #21a504;
-  font-size: 48px;
+  color: #a6ff00;
+  font-size: 52px;
   font-weight: bold;
 }
 

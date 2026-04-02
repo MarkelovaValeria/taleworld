@@ -1,0 +1,21 @@
+.reg {
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg_form {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  width: 450px;
+  margin: 0 auto;
+}
+
+.reg_form_inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

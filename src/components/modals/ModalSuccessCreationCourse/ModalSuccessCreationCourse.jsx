@@ -13,7 +13,7 @@ const ModalSuccessCreationCourse = ({ closeModal, mapId }) => {
         <div className={style.success_creation_inner_btns}>
           <Link
             className={style.success_creation_inner_btn_create_course}
-            href={`/choose-template/map/locations/${mapId}`}
+            href={`/choose-template/map/${mapId}/locations`}
           >
             Створення уроку
           </Link>

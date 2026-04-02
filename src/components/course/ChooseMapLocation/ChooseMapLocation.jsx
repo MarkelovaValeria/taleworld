@@ -1,13 +1,12 @@
 "use client";
+import { useEffect, useState } from "react";
 
-import PageBottomNavButtons from "@/components/common/PageBottomNavButtons/PageBottomNavButtons";
 import { getMapById } from "@/services/connect";
+
 import Image from "next/image";
-import { use, useEffect, useState } from "react";
+import PageBottomNavButtons from "@/components/common/PageBottomNavButtons/PageBottomNavButtons";
 
-const ChooseMapLocaiton = ({ params }) => {
-  const { id } = use(params);
-
+const ChooseMapLocation = ({ mapId }) => {
   const [map, setMap] = useState("");
   const [choosedLocaition, setChoosedLocaion] = useState(0);
 
@@ -36,7 +35,7 @@ const ChooseMapLocaiton = ({ params }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await getMapById(id);
+      const res = await getMapById(mapId);
       setMap(res);
     };
     getData();
@@ -119,12 +118,15 @@ const ChooseMapLocaiton = ({ params }) => {
 
       <PageBottomNavButtons
         buttons={[
-          { text: "НАЗАД", link: `#` },
-          { text: "ПРОДОВЖИТИ", link: "#`" },
+          { text: "Додому", link: `/home` },
+          {
+            text: "ПРОДОВЖИТИ",
+            link: `./locations/${choosedLocaition != 0 ? choosedLocaition : "#"}`,
+          },
         ]}
       />
     </div>
   );
 };
 
-export default ChooseMapLocaiton;
+export default ChooseMapLocation;
