@@ -16,25 +16,35 @@ import style from "./ModalAddTask.module.css";
 const ModalAddTask = ({ closeModal, locId, pointId }) => {
   const [choosedTask, setChoosedTask] = useState(null);
 
-  const { tasks, assignTaskToPoint, removeTaskFromPoint } = useTasks();
+  const { tasks, assignTaskToPoint, removeTaskFromPoint, getTaskForPoint } =
+    useTasks();
 
   const handleClickChooseTask = (task) => {
     if (choosedTask && task.id === choosedTask.id) {
       setChoosedTask(null);
-      console.log(locId, pointId);
-      // removeTaskFromPoint(locId, pointId);
+      removeTaskFromPoint(locId, pointId);
     } else {
       setChoosedTask(task);
     }
   };
 
   const handleSubmitChoosedTask = () => {
-    if (!choosedTask) return;
-
-    assignTaskToPoint(locId, pointId, choosedTask.id);
+    if (!choosedTask) {
+      removeTaskFromPoint(locId, pointId);
+    } else {
+      assignTaskToPoint(locId, pointId, choosedTask.id);
+    }
 
     closeModal();
   };
+
+  useEffect(() => {
+    const existingTask = getTaskForPoint(locId, pointId);
+
+    if (existingTask) {
+      setChoosedTask(existingTask);
+    }
+  }, [locId, pointId, tasks]);
 
   return (
     <div className={style.modal_add_task}>
