@@ -3,7 +3,6 @@
 import Image from "next/image";
 
 import { useState } from "react";
-import { createCourse } from "@/services/connect.js";
 import { useRouter } from "next/navigation";
 
 import style from "./ModalCreateCourse.module.css";
@@ -13,32 +12,6 @@ function ModalCreateCourse({ closeModal, userId }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isEmptyInput, setIsEmptyInput] = useState(false);
-
-  // const createC = async (e) => {
-  //   e.preventDefault();
-  //   if (!userId) {
-  //     alert("Користувач не завантажений");
-  //     return;
-  //   }
-
-  //   if (title != "" && description != "") {
-  //     setIsEmptyInput(false);
-
-  //     await createCourse({
-  //       title,
-  //       description,
-  //       teacherId: userId,
-  //     });
-
-  //     router.push("/choose-template");
-  //   } else {
-  //     setIsEmptyInput(true);
-  //     alert("Заповніть форму");
-  //   }
-
-  //   setTitle("");
-  //   setDescription("");
-  // };
 
   const createC = async (e) => {
     e.preventDefault();
