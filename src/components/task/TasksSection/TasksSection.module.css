@@ -46,6 +46,7 @@
   left: 387px;
 }
 
+/* Контент */
 .task_content {
   padding: 40px 0;
 }
@@ -79,11 +80,25 @@
   text-decoration: underline;
 }
 
+/* Порожній стан */
+.empty {
+  text-align: center;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 40px 0;
+}
+
+.empty_link {
+  color: #a6ff00;
+  text-decoration: underline;
+}
+
+/* Сітка карток */
 .task_content_list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: stretch;
-  gap: 30px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
@@ -91,19 +106,102 @@
   flex-direction: column;
 }
 
+/* Картка задачі */
 .task_content_list_item {
-  width: 30%;
-  background-color: #d9d9d9;
-  color: black;
-  height: auto;
-  border-radius: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  padding: 10px 20px;
-  text-align: center;
+  width: calc(33.333% - 16px);
+  background-color: #1a1a1a;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.2s;
+}
+
+.task_content_list_item:hover {
+  border-color: rgba(166, 255, 0, 0.4);
 }
 
 .task_content_list_item.col {
   width: 100%;
-  padding: 20px 30px;
+}
+
+/* Хедер картки: тип + кнопки */
+.item_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item_type {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a6ff00;
+  background: rgba(166, 255, 0, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.item_actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.item_btn_edit {
+  font-size: 16px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+.item_btn_edit:hover {
+  opacity: 1;
+}
+
+.item_btn_delete {
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+.item_btn_delete:hover {
+  opacity: 1;
+}
+
+/* Питання */
+.item_question {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.4;
+}
+
+/* Варіанти */
+.item_options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  margin-top: auto;
+}
+
+.item_option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.item_option_correct {
+  color: #a6ff00;
+  font-weight: 600;
+}
+
+.item_option_dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
 }

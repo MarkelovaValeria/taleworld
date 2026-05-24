@@ -1,6 +1,7 @@
-import MyCoursesComponent from "@/components/mycourses/MyCoursesComponent.jsx";
 import { getUserFromToken } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import MyCoursesComponent from "@/components/mycourses/MyCoursesComponent.jsx";
+import StudentCoursesComponent from "@/components/mycourses/StudentCoursesComponent.jsx";
 
 const MyCoursesPage = async () => {
   const user = await getUserFromToken();
@@ -11,7 +12,11 @@ const MyCoursesPage = async () => {
 
   return (
     <>
-      <MyCoursesComponent userId={user.userId} />
+      {user.role === "Teacher" ? (
+        <MyCoursesComponent userId={user.userId} />
+      ) : (
+        <StudentCoursesComponent userId={user.userId} />
+      )}
     </>
   );
 };

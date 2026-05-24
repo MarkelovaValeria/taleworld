@@ -3,6 +3,10 @@ import { getAllCoursesByUserId } from "@/services/connect";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
+import style from "./MyCoursesComponent.module.css";
+import Image from "next/image";
+import BaseContainer from "../common/BaseContainer/BaseContainer";
+
 const MyCoursesComponent = ({ userId }) => {
   const [courses, setCourses] = useState([]);
 
@@ -11,31 +15,41 @@ const MyCoursesComponent = ({ userId }) => {
       const data = await getAllCoursesByUserId(userId);
 
       setCourses(data);
+
+      console.log(data);
     };
 
     getData();
   }, []);
 
   return (
-    <div className="pt-2">
-      <div className="flex gap-5 justify-center items-center flex-wrap p-10">
-        {courses.length > 0 ? (
-          courses.map((course) => (
-            <Link
-              href={`/mycourses/${course.id}`}
-              className="flex p-2 justify-center items-center text-center flex-col gap-2 w-40 bg-black text-white"
-              key={course.id}
-            >
-              <span>{course.id}</span>
-              <span>{course.title}</span>
-              <span>{course.description}</span>
-              <span>{course.id}</span>
-            </Link>
-          ))
-        ) : (
-          <span>У вас немає курсів</span>
-        )}
-      </div>
+    <div className={style.courses}>
+      <BaseContainer>
+        <div className={style.courses_list}>
+          {courses.length > 0 ? (
+            courses.map((course) => (
+              <Link
+                className={style.courses_list_item}
+                key={course.id}
+                href={`/mycourses/${course.id}`}
+              >
+                <Image
+                  className={style.courses_list_item_img}
+                  src={course.image ? course.image : "/images/Home_bg.png"}
+                  alt="bg course"
+                  width="846"
+                  height="454"
+                />
+                <span className={style.course_list_item_title}>
+                  {course.title}
+                </span>
+              </Link>
+            ))
+          ) : (
+            <span>У вас немає курсів</span>
+          )}
+        </div>
+      </BaseContainer>
     </div>
   );
 };

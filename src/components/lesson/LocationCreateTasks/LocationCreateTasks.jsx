@@ -93,12 +93,17 @@ const taskLock4 = [
   },
 ];
 
-const LocationCreateTasks = ({ locId }) => {
-  const { initPointsForLesson, getPoints, hasTask } = useTasks();
-  const points = getPoints(locId);
+const LocationCreateTasks = ({ locId, courseId, onSave, saveLabel = "Створити урок" }) => {
+  const { initPointsForLesson, getPoints, isInitialized, hasTask } = useTasks();
+
+  // Use a composite key when courseId is provided so each course stores its own
+  // task assignments at the same map positions.
+  const lessonKey = courseId ? `${courseId}_${locId}` : String(locId);
+
+  const points = getPoints(lessonKey);
+  const initialized = isInitialized(lessonKey);
 
   const [choosedLoc, setChoosedLoc] = useState();
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleClickOpenModalTask = (id) => {
@@ -111,10 +116,11 @@ const LocationCreateTasks = ({ locId }) => {
   };
 
   useEffect(() => {
-    if (!points[locId]) {
-      console.log(locId);
+    // Only initialise when context confirms this key has never been set.
+    // Depending on `initialized` ensures we re-check after localStorage loads.
+    if (!initialized) {
       initPointsForLesson(
-        locId,
+        lessonKey,
         locId == 1
           ? taskLock1
           : locId == 2
@@ -124,7 +130,7 @@ const LocationCreateTasks = ({ locId }) => {
               : taskLock4,
       );
     }
-  }, [locId]);
+  }, [lessonKey, initialized]);
 
   return (
     <section className={style.loc_tasks}>
@@ -140,7 +146,7 @@ const LocationCreateTasks = ({ locId }) => {
             {points.map((loc) => (
               <button
                 key={loc.id}
-                className={`${style.loc_tasks_photolocation_spot} ${hasTask(locId, loc.id) ? style.done : ""}`}
+                className={`${style.loc_tasks_photolocation_spot} ${hasTask(lessonKey, loc.id) ? style.done : ""}`}
                 style={{
                   left: `${loc.x}%`,
                   top: `${loc.y}%`,
@@ -152,8 +158,12 @@ const LocationCreateTasks = ({ locId }) => {
             ))}
           </div>
 
-          <button type="button" className={style.loc_tasks_inner_create_btn}>
-            Створити урок
+          <button
+            type="button"
+            className={style.loc_tasks_inner_create_btn}
+            onClick={onSave}
+          >
+            {saveLabel}
           </button>
         </div>
       </BaseContainer>
@@ -161,7 +171,7 @@ const LocationCreateTasks = ({ locId }) => {
       {modalIsOpen && (
         <ModalAddTask
           closeModal={handleClickCloseModalTask}
-          locId={locId}
+          locId={lessonKey}
           pointId={choosedLoc}
         />
       )}

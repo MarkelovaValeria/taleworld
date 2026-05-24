@@ -1,3 +1,6 @@
+@import "swiper/css";
+@import "swiper/css/effect-coverflow";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -1747,7 +1750,6 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 150px;
 }
 
 .create-lesson-choose-location__content-left,

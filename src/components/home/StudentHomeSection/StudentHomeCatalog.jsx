@@ -30,16 +30,21 @@ const StudentHomeCatalog = () => {
       </div>
       <div className={style.home_student_catalog_top_list}>
         {courses.map((course) => (
-          <Link href={`/course/${course.id}`} key={course.id}>
+          <Link
+            className={style.home_student_catalog_top_list_item}
+            href={`/course/${course.id}`}
+            key={course.id}
+          >
             <Image
-              className={style.home_student_catalog_top_list_item}
-              src={
-                course.coursePhoto ? course.coursePhoto : "/images/Home_bg.png"
-              }
+              className={style.home_student_catalog_top_list_item_img}
+              src={course.coursePhoto ? course.coursePhoto : "/images/Map1.jpg"}
               alt="bg map"
               width="446"
               height="254"
             />
+            <span className={style.home_student_catalog_top_list_item_title}>
+              {course.title}
+            </span>
           </Link>
         ))}
       </div>

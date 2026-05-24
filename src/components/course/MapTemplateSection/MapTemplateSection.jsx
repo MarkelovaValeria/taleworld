@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Image from "next/image";
 
@@ -12,6 +12,7 @@ import { getMapById, createCourse } from "@/services/connect";
 
 const MapTemplateSection = ({ id }) => {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const title = searchParams.get("title");
   const description = searchParams.get("description");
@@ -67,6 +68,7 @@ const MapTemplateSection = ({ id }) => {
       title,
       description,
       teacherId: userId,
+      templateId: Number(id),
       photo: map.backgroundTitle ? map.backgroundTitle : "/images/Home_bg.png",
     });
 
@@ -79,6 +81,7 @@ const MapTemplateSection = ({ id }) => {
 
   const handleCloseModal = () => {
     setIsOpenModal(false);
+    router.replace("/home");
   };
 
   useEffect(() => {

@@ -1,0 +1,125 @@
+.course {
+  background-color: black;
+}
+
+.course_inner {
+  height: calc(100vh - 70px);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 50px 0 35px;
+}
+
+.course_reviews_item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 12px;
+  border: 2px solid #a6ff00;
+  border-radius: 10px;
+  max-width: 450px;
+  height: 100%;
+}
+
+.course_content_text_top_btns {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.course_content_review_btn {
+  color: white;
+  padding: 3px 15px;
+  border-radius: 16px;
+  font-size: 18px;
+  border: 2px solid #a6ff00;
+}
+
+.course_content_settings_btn {
+  transition: all 0.5s ease-in-out;
+}
+
+.course_content_settings_btn:hover {
+  transform: rotate(180deg);
+}
+
+.course_content_review_btn:hover {
+  background-color: #a6ff00;
+  color: black;
+}
+
+.course_reviews_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.course_reviews_title {
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
+.course_reviews_item > h4 {
+  font-size: 18px;
+  color: #ffd58c;
+}
+
+.course_reviews_item > p {
+  font-size: 18px;
+  color: white;
+}
+
+.course_content {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 40px;
+  gap: 60px;
+  overflow: hidden;
+}
+
+.course_content_img {
+  width: 60%;
+  height: 490px;
+  border-radius: 30px;
+}
+
+.course_content_text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.course_content_text_top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.course_content_text_top > h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #a6ff00;
+}
+
+.course_content_text_top > span {
+  font-size: 20px;
+  color: white;
+}
+
+.course_content_text_descr {
+  font-size: 18px;
+  color: white;
+}
+
+/* Swiper: однакова висота для всіх слайдів */
+.swiper_reviews :global(.swiper-wrapper) {
+  align-items: stretch;
+}
+
+.swiper_reviews :global(.swiper-slide) {
+  height: auto;
+}

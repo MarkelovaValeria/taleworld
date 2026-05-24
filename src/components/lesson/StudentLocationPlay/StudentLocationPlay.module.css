@@ -1,0 +1,111 @@
+.play {
+  background: #000;
+  /* Fill everything below the header */
+  height: calc(100vh - 70px);
+  overflow: hidden;
+}
+
+/* Fullscreen map container — no padding, no BaseContainer */
+.play_map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.play_map > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Overlay buttons ─────────────────────────────────── */
+
+/* Back button — top-right corner */
+.backBtn {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  z-index: 10;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  padding: 8px 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.backBtn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Finish button — bottom-right corner */
+.finishBtn {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  background: #a6ff00;
+  border-radius: 10px;
+  padding: 10px 26px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.finishBtn:hover {
+  opacity: 0.88;
+  transform: scale(1.03);
+}
+
+/* ── Task spots ──────────────────────────────────────── */
+
+.spot {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  z-index: 5;
+}
+
+.spot:not(:disabled):hover {
+  border-color: #a6ff00;
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+/* Правильна відповідь — зелена */
+.spotCorrect {
+  border-color: #a6ff00;
+  background: rgba(166, 255, 0, 0.4);
+  cursor: default;
+}
+
+/* Неправильна відповідь — червона */
+.spotWrong {
+  border-color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.4);
+}
+
+/* Підказку використано — оранжева */
+.spotHinted {
+  border-color: #ff8c00;
+  background: rgba(255, 140, 0, 0.4);
+  cursor: default;
+}

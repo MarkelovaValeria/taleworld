@@ -53,6 +53,7 @@
 .enrollment_content_text {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .enrollment_content_text_top {

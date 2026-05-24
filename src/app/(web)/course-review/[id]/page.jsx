@@ -1,14 +1,4 @@
-"use client";
-import { useEffect, useState } from "react";
-import { getCourseById } from "@/services/connect";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import Link from "next/link";
-import BaseContainer from "@/components/common/BaseContainer/BaseContainer";
-import style from "./TeacherCourseSection.module.css";
-
-import settingsIcon from "/public/svg/settings.svg";
-import Image from "next/image";
+import CourseReviewSingleSection from "../../../../components/course-review/CourseReviewSingleSection";
 
 const reviewsPositive = [
   {
@@ -204,97 +194,13 @@ const reviewsMixed = [
   },
 ];
 
-const TeacherCourseSection = ({ id }) => {
-  const [course, setCourse] = useState(null);
-  const [reviews, setReviews] = useState(reviewsMixed);
-
-  useEffect(() => {
-    const getData = async () => {
-      const data = await getCourseById(id);
-      console.log(data);
-      setCourse(data);
-    };
-    getData();
-  }, [id]);
-
-  if (!course) return null;
-
+const CourseReviewSinglePage = ({ params }) => {
+  const { id } = params;
   return (
-    <section className={style.course}>
-      <BaseContainer>
-        <div className={style.course_inner}>
-          <div className={style.course_content}>
-            <Image
-              width={720}
-              height={490}
-              alt="map"
-              src={course?.image ? course.image : "/images/newHome.png"}
-              className={style.course_content_img}
-            />
-
-            <div className={style.course_content_text}>
-              <div className={style.course_content_text_top}>
-                <h2>{course?.title}</h2>
-                <div className={style.course_content_text_top_btns}>
-                  <Link
-                    className={style.course_content_settings_btn}
-                    href={`/mycourses/${id}/locations`}
-                  >
-                    <Image
-                      src={settingsIcon}
-                      width={30}
-                      height={30}
-                      alt="settings icon"
-                    />
-                  </Link>
-                </div>
-              </div>
-              <p className={style.course_content_text_descr}>
-                {course?.description
-                  ? course.description
-                  : "TaleWorld -  ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula libero sit amet mi venenatis, in egestas eros convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula libero sit amet mi venenatis, in egestas eros convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vehicula libero sit amet mi venenatis, in egestas eros convallis. "}
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <div className={style.course_reviews_top}>
-              <h3 className={style.course_reviews_title}>Відгуки студентів:</h3>
-              <Link
-                className={style.course_content_review_btn}
-                href={`/course-review/${id}`}
-              >
-                Звіт
-              </Link>
-            </div>
-
-            <Swiper
-              spaceBetween={20}
-              slidesPerView="auto"
-              className={`mt-8 ${style.swiper_reviews}`}
-            >
-              {reviews.map((rev) => (
-                <SwiperSlide key={rev.id} style={{ width: "auto" }}>
-                  <div key={rev.id} className={style.course_reviews_item}>
-                    <h4>{rev.name}</h4>
-                    <p>
-                      {rev.text.length > 100
-                        ? `${rev.text.slice(0, 89)}...`
-                        : rev.text}
-                    </p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          <div>
-            <Link href={``}></Link>
-          </div>
-        </div>
-      </BaseContainer>
-    </section>
+    <>
+      <CourseReviewSingleSection id={id} reviews={reviewsMixed} />
+    </>
   );
 };
 
-export default TeacherCourseSection;
+export default CourseReviewSinglePage;

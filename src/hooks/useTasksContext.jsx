@@ -28,6 +28,16 @@ export const TasksProvider = ({ children, userId }) => {
     setTasks((prev) => [...prev, task]);
   };
 
+  const deleteTask = (taskId) => {
+    setTasks((prev) => prev.filter((t) => t.id !== taskId));
+  };
+
+  const updateTask = (updatedTask) => {
+    setTasks((prev) =>
+      prev.map((t) => (t.id === updatedTask.id ? updatedTask : t)),
+    );
+  };
+
   const getAllTasks = () => tasks;
 
   const initPointsForLesson = (lessonId, pointsArray) => {
@@ -62,6 +72,8 @@ export const TasksProvider = ({ children, userId }) => {
     }));
   };
 
+  const isInitialized = (lessonId) => !!points?.[lessonId];
+
   const hasTask = (lessonId, pointId) => {
     return !!points?.[lessonId]?.find((p) => p.id === pointId)?.taskId;
   };
@@ -76,10 +88,13 @@ export const TasksProvider = ({ children, userId }) => {
       value={{
         tasks,
         addTask,
+        deleteTask,
+        updateTask,
         getAllTasks,
 
         initPointsForLesson,
         getPoints,
+        isInitialized,
 
         assignTaskToPoint,
         removeTaskFromPoint,

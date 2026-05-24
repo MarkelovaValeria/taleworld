@@ -1,0 +1,121 @@
+.map {
+  background: #000;
+  min-height: calc(100vh - 70px);
+  color: white;
+  padding: 50px 0 40px;
+}
+
+/* Заголовок + прогрес */
+.map_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.map_title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #a6ff00;
+}
+
+.map_subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 6px;
+}
+
+.map_progress {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.map_progress_label {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.map_progress_bar_wrap {
+  width: 240px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.map_progress_bar {
+  height: 100%;
+  background: #a6ff00;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.map_progress_pct {
+  font-size: 20px;
+  font-weight: bold;
+  color: #a6ff00;
+}
+
+/* Статус локацій */
+.loc_available {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.loc_available:hover {
+  border-color: #a6ff00 !important;
+}
+
+.loc_completed {
+  border-color: #a6ff00 !important;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.loc_locked {
+  opacity: 0.4;
+  cursor: not-allowed !important;
+  filter: grayscale(0.6);
+}
+
+.loc_locked:hover {
+  border-color: transparent !important;
+  opacity: 0.4;
+}
+
+/* Бейдж (✓ або 🔒) */
+.loc_badge {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* Нижній рядок */
+.map_back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.map_back_btn {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.map_back_btn:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.map_done {
+  font-size: 24px;
+  font-weight: bold;
+  color: #a6ff00;
+}

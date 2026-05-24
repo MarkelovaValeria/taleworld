@@ -214,3 +214,65 @@ export async function createCourse(courseData) {
     return null;
   }
 }
+
+// ML
+const ABSA_URL = "http://localhost:8000";
+
+export async function analyzeReviews(reviews) {
+  try {
+    const response = await fetch(`${ABSA_URL}/analyze`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        reviews: reviews.map((r) => r.text),
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText || "Помилка аналізу відгуків");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Помилка ABSA аналізу:", error);
+    return null;
+  }
+}
+
+export async function analyzeSingleReview(text) {
+  try {
+    const response = await fetch(`${ABSA_URL}/analyze/single`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText || "Помилка аналізу відгуку");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Помилка ABSA аналізу:", error);
+    return null;
+  }
+}
+
+export async function checkAbsaHealth() {
+  try {
+    const response = await fetch(`${ABSA_URL}/health`);
+    if (!response.ok) return false;
+    const data = await response.json();
+    return data.model_loaded;
+  } catch {
+    return false;
+  }
+}

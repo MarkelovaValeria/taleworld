@@ -47,6 +47,8 @@ const CreateTaskSection = () => {
   const handleAddTask = () => {
     if (questionText.length < 3) {
       alert("Напишіть текст до завдання");
+    } else if (!options.some((opt) => opt.isCorrect)) {
+      alert("Позначте правильну відповідь (натисніть на кружечок біля варіанту)");
     } else {
       const newTask = {
         id: uuidv4(),

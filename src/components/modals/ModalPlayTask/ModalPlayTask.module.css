@@ -1,0 +1,152 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal {
+  position: relative;
+  background: #1a1a1a;
+  border: 2px solid #a6ff00;
+  border-radius: 20px;
+  padding: 40px 36px 32px;
+  width: 560px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+}
+
+.close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.close:hover {
+  opacity: 1;
+}
+
+.question {
+  font-size: 22px;
+  font-weight: bold;
+  color: #a6ff00;
+  line-height: 1.4;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+/* Базовий стиль варіанта */
+.option {
+  width: 100%;
+  text-align: left;
+  padding: 14px 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 18px;
+  transition: border-color 0.15s, background 0.15s;
+  cursor: pointer;
+}
+.option:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Вибрано, але ще не підтверджено */
+.option.chosen {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Правильна відповідь (після підтвердження) */
+.option.correct {
+  border-color: #a6ff00;
+  background: rgba(166, 255, 0, 0.12);
+  cursor: default;
+}
+
+/* Неправильна вибрана (після підтвердження) */
+.option.wrong {
+  border-color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.12);
+  cursor: default;
+}
+
+/* Футер — кнопки і фідбек */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  min-height: 44px;
+}
+
+.confirmBtn {
+  background: #a6ff00;
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px 28px;
+  border-radius: 10px;
+  transition: opacity 0.2s;
+}
+.confirmBtn:hover {
+  opacity: 0.85;
+}
+
+.feedbackCorrect {
+  font-size: 20px;
+  font-weight: bold;
+  color: #a6ff00;
+  flex: 1;
+}
+.feedbackWrong {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff4d4d;
+  flex: 1;
+}
+
+.feedbackNoAnswer {
+  font-size: 16px;
+  color: #ff8c00;
+  flex: 1;
+}
+
+.doneBtn {
+  background: white;
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px 28px;
+  border-radius: 10px;
+  transition: opacity 0.2s;
+}
+.doneBtn:hover {
+  opacity: 0.8;
+}
+
+/* Помаранчева кнопка — показати правильну відповідь */
+.revealBtn {
+  background: #ff8c00;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 10px;
+  transition: opacity 0.2s;
+}
+.revealBtn:hover {
+  opacity: 0.85;
+}
