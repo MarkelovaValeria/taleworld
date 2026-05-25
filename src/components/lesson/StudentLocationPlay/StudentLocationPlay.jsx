@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import ModalPlayTask from "@/components/modals/ModalPlayTask/ModalPlayTask";
 import { useProgress } from "@/hooks/useProgress";
-import { getUserByCourseId } from "@/services/connect";
+import { getCourseById, getUserByCourseId } from "@/services/connect";
 import { mockTasks } from "@/data/tasks";
 
 import locImage from "/public/images/locations/location1.png";
@@ -60,7 +60,13 @@ const StudentLocationPlay = ({ courseId, locId, studentId }) => {
       let rawPoints = null;
 
       try {
-        const teacher = await getUserByCourseId(courseId);
+        // Fetch course and teacher in parallel
+        const [course, teacher] = await Promise.all([
+          getCourseById(courseId),
+          getUserByCourseId(courseId),
+        ]);
+
+        const mapId = course?.mapId ?? 1;
         const teacherId = teacher?.id ?? teacher?.userId;
 
         if (teacherId) {
@@ -72,10 +78,11 @@ const StudentLocationPlay = ({ courseId, locId, studentId }) => {
 
           if (teacherTasks.length > 0) loadedTasks = teacherTasks;
 
-          // Look up per-course key first (edit flow), then fall back to bare locId (creation flow)
-          const perCourseKey = `${courseId}_${locId}`;
-          if (teacherPoints[perCourseKey]?.length > 0) {
-            rawPoints = teacherPoints[perCourseKey];
+          // Primary key: mapId_locId (shared between creation and edit flows)
+          // Fallback: bare locId (old data before this fix)
+          const mapKey = `${mapId}_${locId}`;
+          if (teacherPoints[mapKey]?.length > 0) {
+            rawPoints = teacherPoints[mapKey];
           } else if (teacherPoints[locId]?.length > 0) {
             rawPoints = teacherPoints[locId];
           }

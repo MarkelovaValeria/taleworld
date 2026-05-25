@@ -93,12 +93,12 @@ const taskLock4 = [
   },
 ];
 
-const LocationCreateTasks = ({ locId, courseId, onSave, saveLabel = "Створити урок" }) => {
+const LocationCreateTasks = ({ locId, mapId, onSave, saveLabel = "Створити урок" }) => {
   const { initPointsForLesson, getPoints, isInitialized, hasTask } = useTasks();
 
-  // Use a composite key when courseId is provided so each course stores its own
-  // task assignments at the same map positions.
-  const lessonKey = courseId ? `${courseId}_${locId}` : String(locId);
+  // Key is always mapId_locId so creation flow and edit flow share the same data.
+  // mapId is the map template id; locId is the location number.
+  const lessonKey = mapId ? `${mapId}_${locId}` : String(locId);
 
   const points = getPoints(lessonKey);
   const initialized = isInitialized(lessonKey);
